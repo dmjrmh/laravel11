@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
@@ -15,5 +16,10 @@ class Post extends Model
     // used for change pk
     // protected $primaryKey = 'blog_post_id';
 
-    protected $fillable = ['title', 'author', 'slug', 'description'];
+    protected $fillable = ['title', 'user_id', 'slug', 'description'];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
