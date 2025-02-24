@@ -16,10 +16,10 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Post', 'posts' => Post::all()]);
 });
 
-Route::get('/posts/{slug}', function ($slug) {
+Route::get('/posts/{post:slug}', function (Post $post) {
     // dd($id);
 
-    $post = Post::find($slug);
+    // $post = Post::find($post);
 
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
