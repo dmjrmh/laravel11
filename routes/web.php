@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['title' => 'Home Page']);
 });
 
 Route::get('/blog', function () {
-    return view('blog');
+    return view('blog', ['title' => 'Blog']);
+});
+
+Route::get('/contact', function () {
+    return view('contact', ['title' => 'Contact']);
 });
 
 Route::get('/blog/natus-vincere', function () {
@@ -22,12 +26,8 @@ Route::get('/blog/carl-johnson', function () {
     return view('carl-johnson');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
 Route::get('/about', function () {
-    return view('about', ['name' => 'Hehe']);
+    return view('about', ['title' => 'About', 'name' => 'Hehe']);
 });
 
 // 2 route baru 
