@@ -17,6 +17,7 @@ class Post extends Model
     // protected $primaryKey = 'blog_post_id';
 
     protected $fillable = ['title', 'user_id', 'slug', 'description'];
+    protected $with = ['user', 'category'];
 
     public function user(): BelongsTo
     {
