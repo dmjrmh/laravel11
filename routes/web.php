@@ -15,9 +15,7 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
-    // $posts = Post::with(['user', 'category'])->get();
-    $posts = Post::get();
-    return view('posts', ['title' => 'Post', 'posts' => $posts]);
+    return view('posts', ['title' => 'Post', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
